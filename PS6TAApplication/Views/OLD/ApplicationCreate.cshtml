@@ -1,0 +1,232 @@
+﻿<!--
+  Authors:   Matt McFarlane, Zach Post
+  Date:      10/1/2022
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and McFarlane/Post - This work may not be copied for use in Academic Coursework.
+
+  I, Matt McFarlane, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+  I, Zach Post, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    This page is to be used to submit an application to be a TA by filling out the forms on the page and pressing submit
+-->
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="~/images/U_Chalk.ico">
+    <link rel="stylesheet" href="Site.css" />
+    <link rel="stylesheet" href="ApplicationCreate.css" />
+    <title>TA Application Form</title>
+    <meta name="author" content="McFarlane & Post" />
+    <meta name="description" content="This page is to be used to submit an application to be a TA by filling out the forms on the page and pressing submit" />
+    <meta name="keywords" content="TA, Application, Home, Form" />
+</head>
+<body id="page">
+    <header></header>
+
+    <div class="container" id="base_page_container">
+        <div class="row justify-content-center d-flex align-items-center">
+            <div class="col-10 col-lg-6">
+                <h1 id="home_title">TA Application</h1>
+                <hr class="page_separator">
+                <h2 id="home_desc"> Welcome to the TA Application Page!</h2>
+                <p id="page_desc">Here you can fill out and submit an application to TA for a course. Please be as accurate as possible and double check all entries. Once you have submitted your application for review, you can expect a response in 7-12 business days.</p>
+            </div>
+            <div class="col-10 col-lg-6">
+                <img id="jobapp_image" class="rounded-3 img-fluid my-c" src="~/images/application.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="row">
+            <hr class="page_separator" style="margin-top: 1.5em">
+        </div>
+
+        <div>
+            <form class="text-light row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <h3 class="text-center">Personal Info</h3>
+                        <hr class="form_separator">
+                        <div class="mb-3 col-md-5">
+                            <label for="input_first_name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="input_name">
+                        </div>
+                        <div class="mb-3 col-md-5">
+                            <label for="input_last_name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="input_name">
+                        </div>
+                        <div class="mb-3 col-md-2">
+                            <label for="input_uid" class="form-label">uID</label>
+                            <input type="text" class="form-control" id="input_uid">
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="input_email" class="form-label">
+                                Email address
+                                <a href="#" class="d-inline-block" data-toggle="tooltip" data-html="true" title="Don't enter your uMail if you don't use it!">
+                                    <img src="~/images/help.png" alt="Help" id="help_button" style="width: 15px; height: 15px;">
+                                </a>
+                            </label>
+
+                            <input type="email" class="form-control" id="input_email">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="input_pronoun" class="form-label">Pronouns</label>
+                            <input type="text" class="form-control" id="input_pronoun">
+                        </div>
+
+                        <!-- source: https://gist.github.com/RichLogan/9903043 -->
+                        <div class="col-md-2">
+                            <label for="input_state" class="form-label">State</label>
+                            <select class="mb-3 form-select" id="input_state">
+                                <option value="">(Select)</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DC">District of Columbia</option>
+                                <option value="DE">Delaware</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="IA">Iowa</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MD">Maryland</option>
+                                <option value="ME">Maine</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MT">Montana</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NY">New York</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VA">Virginia</option>
+                                <option value="VT">Vermont</option>
+                                <option value="WA">Washington</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-md-3">
+                            <label for="input_city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="input_city">
+                        </div>
+                        <div class="mb-3 col-md-5">
+                            <label for="input_address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="input_address">
+                        </div>
+                        <div class="mb-3 col-md-2">
+                            <label for="input_zip" class="form-label">Zip Code</label>
+                            <input type="text" class="form-control" id="input_zip">
+                        </div>
+
+
+                        <h3 class="text-center">Academic Info</h3>
+                        <hr class="form_separator">
+
+
+                        <div class="mb-3 col-md-3">
+                            <label for="input_dept" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="input_dept">
+                        </div>
+                        <div class="mb-3 col-md-2">
+                            <label for="input_semesters" class="form-label">Semesters at Utah</label>
+                            <input type="text" class="form-control" id="input_semesters">
+                        </div>
+                        <div class="mb-3 col-md-2">
+                            <label for="input_gpa" class="form-label">UofU GPA</label>
+                            <input type="text" class="form-control" id="input_gpa">
+                        </div>
+                        <div class="mb-3 col-md-5">
+                            <label for="input_prevuni" class="form-label">Previous Univ. (if applicable)</label>
+                            <input type="text" class="form-control" id="input_prevuni">
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="input_audit" class="form-label"> Upload pdf of degree audit</label>
+                            <input class="form-control" type="file" id="input_audit">
+                        </div>
+
+
+
+                        <div class="col">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="input_record_perm">
+                                <label class="form-check-label" for="input_record_perm">
+                                    Permission to view academic records
+                                </label>
+                            </div>
+                        </div>
+
+                        <h3 class="text-center">Teaching Info</h3>
+                        <hr class="form_separator">
+
+                        <div class="mb-3 col-md-10">
+                            <label for="input_position" class="form-label">Position Being Sought</label>
+                            <input type="text" class="form-control" id="input_position">
+                        </div>
+
+                        <div class="mb-3 col-md-2">
+                            <label for="input_hours" class="form-label">Desired Max Hours</label>
+                            <input type="text" class="form-control" id="input_hours">
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="personal_statement" class="form-label">Personal Statement</label>
+                            <textarea class="form-control" id="personal_statement" rows="4"></textarea>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="input_teach_exp" class="form-label">Approx. hours of teaching experience</label>
+                            <input type="text" class="form-control" id="input_teach_exp">
+                        </div>
+
+                        <div class="mb-3 col-md-8">
+                            <label for="input_fluency" class="form-label">Fluency in English</label>
+                            <input type="text" class="form-control" id="input_fluency">
+                        </div>
+
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-primary" id="submit_button">Submit</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

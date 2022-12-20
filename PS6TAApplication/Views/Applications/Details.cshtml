@@ -1,0 +1,197 @@
+﻿<!--
+  Authors:   Matt McFarlane, Zach Post
+  Date:      10/19/2022
+  Course:    CS 4540, University of Utah, School of Computing
+  Copyright: CS 4540 and McFarlane/Post - This work may not be copied for use in Academic Coursework.
+
+  I, Matt McFarlane, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+  I, Zach Post, certify that I wrote this code from scratch and did not copy it in part or whole from
+  another source.  Any references used in the completion of the assignment are cited in my README file.
+
+  File Contents
+
+    Application Details page viewable by user that submitted the application as well as professors or admins
+-->
+@using Microsoft.AspNetCore.Identity
+@using PS6TAApplication.Areas.Data
+@model PS6TAApplication.Models.Application
+
+@{
+    ViewData["Title"] = "Details";
+}
+@inject UserManager<TAUser> UserManager
+
+<!-- I spent a LONG time trying to figure out why the .css files weren't loading in and eventually
+just decided it wasn't worth it to continue, so I'm putting the style stuff in here. The weird thing
+is that they were working fine before I started working on PS6, I don't know what happened. -->
+<style>
+    .data_label {
+        color: gray;
+        font-size: 24px;
+    }
+
+    .data_text {
+        color: white;
+        font-size: 32px;
+    }
+
+    .separator_label {
+        color: lightgray;
+        font-size: 40px;
+        margin-top: 25px;
+    }
+
+    .form_separator {
+        margin-left: 12.5%;
+        margin-right: 12.5%;
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        border-width: 3px;
+    }
+
+    a:link, a:visited {
+        color: white;
+    }
+</style>
+
+<body id="page">
+    <header></header>
+
+    <div class="container" id="base_page_container">
+        <div class="row justify-content-md-center">
+
+            <h3 class="text-center separator_label">Application Info</h3>
+
+            <div class="container col-xxl-12 px-4 py-5 bg-dark rounded-4">
+                <div class="row">
+                    <div class="col-12 col-md-6 ">
+                        <span class="data_label">Applicant Name:  </span>
+                        <span class="data_text">@UserManager.FindByIdAsync(Model.TAUserId).Result.Name</span>
+                    </div>
+
+                    <div class="col-12 col-md-6 detail_text ">
+                        <span class="data_label"> uID:  </span>
+                        <span class="data_text">@UserManager.FindByIdAsync(Model.TAUserId).Result.Unid </span>
+                    </div>
+                    <div class="col-12 col-md-6 detail_text ">
+                        <span class="data_label"> Modified by:  </span>
+                        <span class="data_text">@Model.ModifiedBy </span>
+                    </div>
+                    <div class="col-12 col-md-6 detail_text ">
+                        <span class="data_label"> Last modified:  </span>
+                        <span class="data_text">@Model.ModificationDate </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <h3 class="text-center separator_label">Academic Info</h3>
+            <hr class="form_separator">
+
+            <div class="container col-xxl-12 px-4 py-5 bg-dark rounded-4">
+                <div class="row">
+                    <div class="col-12 col-md-3 detail_text ">
+                        <span class="data_label"> Department:  </span>
+                        <span class="data_text">@Model.Department</span>
+                    </div>
+                    <div class="col-12 col-md-3 detail_text ">
+                        <span class="data_label"> Semesters at Utah:  </span>
+                        <span class="data_text">@Model.SemestersCompleted</span>
+                    </div>
+                    <div class="col-12 col-md-3 detail_text ">
+                        <span class="data_label"> U of U GPA:  </span>
+                        <span class="data_text">@Model.UofUGPA</span>
+                    </div>
+                    <div class="col-12 col-md-3 detail_text ">
+                        <span class="data_label"> Pursued degree:  </span>
+                        <span class="data_text">@Model.CurrentDegree</span>
+                    </div>
+                    <div class="col-12 col-md-12 detail_text ">
+                        <span class="data_label"> Previous University:  </span>
+                        @if (@Model.TransferSchool != null)
+                        {
+                            <span class="data_text">@Model.TransferSchool</span>
+                        }
+                        else
+                        {
+                            <span class="h4" style="color:darkred">N/A</span>
+                        }
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-center separator_label">Teaching Info</h3>
+            <hr class="form_separator">
+
+            <div class="container col-xxl-12 px-4 py-5 bg-dark rounded-4">
+                <div class="row">
+                    <div class="col-12 col-md-4 detail_text ">
+                        <span class="data_label"> Desired Max Hours:  </span>
+                        <span class="data_text">@Model.HoursRequested</span>
+                    </div>
+                    <div class="col-12 col-md-8 detail_text ">
+                        <span class="data_label"> Download Degree Audit:</span>
+                        @if (@Model.ResumeFileName != null)
+                        {
+                            <button type="submit" class="btn btn-primary" id="submit_button">Download @Model.ResumeFileName</button>
+                        }
+                        else {
+                            <span class="h4" style="color:darkred">N/A</span>
+                        }
+                    </div>
+                    <div class="col-12 col-md-4 detail_text ">
+                        <span class="data_label"> Available week before classes:  </span>
+                        <span class="data_text">@Html.DisplayFor(model => model.IsAvailableWeekBefore)</span>
+                    </div>
+                    <div class="col-12 col-md-8 detail_text ">
+                        <span class="data_label"> LinkedIn URL: </span>
+                        @if (@Model.LinkedInURL != null)
+                        {
+                            <span class="data_text"><a href=@Model.LinkedInURL>@Model.LinkedInURL</a> </span>
+                        }
+                        else
+                        {
+                            <span class="h4" style="color:darkred">N/A</span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-center separator_label">Personal Statement</h3>
+            <hr class="form_separator">
+            <div class="container col-xxl-12 px-4 py-5 bg-dark rounded-4">
+                <div class="row">
+                    <div class="col-12 col-md-12 detail_text ">
+                        <span class="data_text">
+                            @Model.Statement
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<div class="container">
+    <hr class="form_separator">
+    @if (User.IsInRole("Professor") || User.IsInRole("Admin"))
+    {
+        <div class="col-12 justify-content-center text-center">
+            <a class="btn btn-primary fw-bold m-4" style="color:white; font-size:24px" asp-action="List">Back to List</a>
+        </div>
+    }
+
+    @if (User.IsInRole("Applicant") || User.IsInRole("Admin"))
+    {
+        <div class="row">
+            <div class="col-12 text-end fw-bold text-center">
+                <a asp-action="Edit" style="color:lightgray" asp-route-id="@Model?.ID">Edit</a>
+                <span> | </span>
+                <a asp-action="Delete" style="color:lightgray" asp-route-id="@Model?.ID">Delete</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-PS6TAApplication-C5BEFEC2-04E5-49A8-9E8D-8EF7CD21F81E</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\navbar_partial.cshtml" />
+    <Content Remove="wwwroot\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\application.jpg" />
+    <None Include="wwwroot\images\bill.jpg" />
+    <None Include="wwwroot\images\books.jpg" />
+    <None Include="wwwroot\images\dogs.jpg" />
+    <None Include="wwwroot\images\help.png" />
+    <None Include="wwwroot\images\obama.jpg" />
+    <None Include="wwwroot\images\pCircle.jpg" />
+    <None Include="wwwroot\images\steve.jpg" />
+    <None Include="wwwroot\images\U_Chalk.ico" />
+    <None Include="wwwroot\images\U_Chalk.jpg" />
+    <None Include="wwwroot\images\U_Logo.png" />
+    <None Include="wwwroot\DataTable.css" />
+    <None Include="wwwroot\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+    <PackageReference Include="SendGrid" Version="9.28.1" />
+  </ItemGroup>
+
+</Project>
